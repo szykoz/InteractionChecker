@@ -1,0 +1,9 @@
+body {
+    background-color: darkseagreen;
+}
+.list-group{
+    max-height: 400px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}

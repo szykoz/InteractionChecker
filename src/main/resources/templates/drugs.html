@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Drugs checker</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/form-validation.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="/images/pills.png" alt="">
+        <h2>Drug interaction checker</h2>
+        <p class="lead">Select two drugs, to check their possible interactions</p>
+    </div>
+    <div class="col-md-12 pb-4">
+        <div class="input-group">
+
+            <input type="search" id="form1" class="form-control" placeholder="Type in a drug name..."/>
+
+            <button type="button" class="btn btn-primary">Search
+<!--                <i class="fas fa-search"></i>-->
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 order-md-2">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Interaction list</span>
+                <span class="badge bg-warning text-dark">4</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Drug 1</h6>
+                        <!--                        <small class="text-muted">Brief description</small>-->
+                    </div>
+                    <span class="text-muted">rxcui</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Drug 2</h6>
+                        <!--                        <small class="text-muted">Brief description</small>-->
+                    </div>
+                    <span class="text-muted">rxcui</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Drug 3</h6>
+                        <!--                        <small class="text-muted">Brief description</small>-->
+                    </div>
+                    <span class="text-muted">rxcui</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Drug 4</h6>
+                        <!--                        <small class="text-muted">Brief description</small>-->
+                    </div>
+                    <span class="text-muted">rxcui</span>
+                </li>
+
+            </ul>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Choose from the list</h4>
+            <form class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="drug1">Drug name 1</label>
+                        <select class="form-select d-block w-100" id="drug1" required>
+                            <option value="">Choose...</option>
+                            <option>Aspirine</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid country.
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="drug2">Drug name 2</label>
+                        <select class="form-select d-block w-100" id="drug2" required>
+                            <option value="">Choose...</option>
+                            <option>Ibuprofen</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select a valid country.
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Check</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2021 Szymon Kozioł</p>
+    </footer>
+
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+        crossorigin="anonymous"></script>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+</body>
+</html>
