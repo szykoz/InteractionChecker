@@ -13,4 +13,7 @@ public interface DrugRepository extends Neo4jRepository<Drug, Long> {
     //@Query("MATCH (d:Drug)<-[r:INTERACTS]-(d2:Drug) return collect(DISTINCT d2) AS nodes")
     @Query("MATCH ()<-[r:INTERACTS]-(n:Drug) WITH collect(DISTINCT n) AS __sn__ RETURN __sn__")
     List<Drug> getAllDrugs();
+
+    @Query("MATCH (d:Drug {id: $rxcui})-[r:INTERACTS]->(e:Drug) return r,e")
+    List<Drug> getAllInteractions(Long rxcui);
 }

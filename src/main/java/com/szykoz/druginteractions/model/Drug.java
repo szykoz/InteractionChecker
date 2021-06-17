@@ -11,14 +11,14 @@ import org.springframework.data.neo4j.core.schema.Relationship;
 import java.util.ArrayList;
 import java.util.List;
 
-@Node("Drug")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Node("Drug")
 public class Drug {
     @Id
-    Long id;
-    String name;
+    private Long id;
+    private String name;
     @Relationship(type = "INTERACTS", direction = Relationship.Direction.INCOMING)
-    List<Drug> interactionList = new ArrayList<>();
+    private List<Drug> interactionList = new ArrayList<>();
 }

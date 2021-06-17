@@ -7,4 +7,6 @@ import java.util.List;
 public interface InteractionService {
 
     List<Drug> getAllDrugs();
+
+    List<Drug> getAllInteractions(Long rxcui);
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Drug interaction checker</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/pills.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+</head>
+
+<body class="h-100"
+      style="background-image: url('/images/medicines.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+<div class="container h-100">
+    <div class="row justify-content-center h-100 align-items-center">
+        <div class="col-md-6" style="background: rgba(52, 235, 216, 0.8)">
+            <div class="row no-gutters">
+                <div class="col-xl-12">
+                    <div class="auth-form m-5">
+                        <div class="text-center mb-3">
+                            <a><img src="images/pills.png" alt=""></a>
+                        </div>
+                        <h4 class="text-center mb-4 text-white">Drugs interaction checker</h4>
+                        <form th:action="@{/drugs/check}" method="get">
+                            <div class="form-group">
+                                <label class="text-white" for="drug">Select drug name</label>
+                                <select class="form-select default-select d-block w-100" id="drug" name="rxcui" title="Choose...">
+                                    <option value="" selected disabled>Please select</option>
+                                    <option th:each="drug : ${drugList}" th:text="${drug.name}" th:value="${drug.id}"></option>
+                                </select>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Check</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

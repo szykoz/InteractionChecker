@@ -3,12 +3,11 @@ package com.szykoz.druginteractions.controller;
 import com.szykoz.druginteractions.service.InteractionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/check-interaction")
+@RequestMapping("/drugs")
 public class InteractionController {
 
     private final InteractionService interactionService;
@@ -20,10 +19,20 @@ public class InteractionController {
 
     @GetMapping("")
     ModelAndView getResponse() {
-        ModelAndView model = new ModelAndView("drugs");
+        ModelAndView model = new ModelAndView("index");
         //System.err.println(interactionService.getAllDrugs());
         model.addObject("drugList", interactionService.getAllDrugs());
         return model;
+    }
+
+    @GetMapping("/check")
+    ModelAndView getInteractions(@RequestParam(name = "rxcui") Long id) {
+        ModelAndView model = new ModelAndView("interactions");
+        System.err.println(interactionService.getAllInteractions(id));
+        model.addObject("interactionList", interactionService.getAllInteractions(id));
+
+        return model;
+
     }
 
 

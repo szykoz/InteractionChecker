@@ -21,4 +21,9 @@ public class InteractionServiceImpl implements InteractionService {
     public List<Drug> getAllDrugs() {
         return drugRepository.getAllDrugs();
     }
+
+    @Override
+    public List<Drug> getAllInteractions(Long rxcui) {
+        return drugRepository.getAllInteractions(rxcui);
+    }
 }
