@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -80,8 +80,7 @@
                     <div class="col-md-6 mb-3">
                         <label for="drug1">Drug name 1</label>
                         <select class="form-select d-block w-100" id="drug1" required>
-                            <option value="">Choose...</option>
-                            <option>Aspirine</option>
+                            <option th:each="drug : ${drugList}" th:text="${drug.name}"></option>
                         </select>
                         <div class="invalid-feedback">
                             Please select a valid country.
