@@ -29,6 +29,7 @@ public class InteractionController {
     ModelAndView getInteractions(@RequestParam(name = "rxcui") Long id) {
         ModelAndView model = new ModelAndView("interactions");
         System.err.println(interactionService.getAllInteractions(id));
+        model.addObject("drug", interactionService.findById(id).get());
         model.addObject("interactionList", interactionService.getAllInteractions(id));
 
         return model;

@@ -29,7 +29,7 @@
                         <form th:action="@{/drugs/check}" method="get">
                             <div class="form-group">
                                 <label class="text-white" for="drug">Select drug name</label>
-                                <select class="form-select default-select d-block w-100" id="drug" name="rxcui" title="Choose...">
+                                <select class="form-select default-select d-block w-100" id="drug" name="rxcui">
                                     <option value="" selected disabled>Please select</option>
                                     <option th:each="drug : ${drugList}" th:text="${drug.name}" th:value="${drug.id}"></option>
                                 </select>

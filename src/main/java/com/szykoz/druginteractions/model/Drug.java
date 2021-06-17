@@ -18,7 +18,8 @@ import java.util.List;
 public class Drug {
     @Id
     private Long id;
+    @Property("name")
     private String name;
     @Relationship(type = "INTERACTS", direction = Relationship.Direction.INCOMING)
-    private List<Drug> interactionList = new ArrayList<>();
+    private List<Interaction> interactionList = new ArrayList<>();
 }

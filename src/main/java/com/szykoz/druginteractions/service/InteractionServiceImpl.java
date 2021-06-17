@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InteractionServiceImpl implements InteractionService {
@@ -25,5 +26,10 @@ public class InteractionServiceImpl implements InteractionService {
     @Override
     public List<Drug> getAllInteractions(Long rxcui) {
         return drugRepository.getAllInteractions(rxcui);
+    }
+
+    @Override
+    public Optional<Drug> findById(Long id) {
+        return drugRepository.findById(id);
     }
 }
