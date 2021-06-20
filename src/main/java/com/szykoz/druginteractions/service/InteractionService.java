@@ -9,7 +9,5 @@ public interface InteractionService {
 
     List<Drug> getAllDrugs();
 
-    List<Drug> getAllInteractions(Long rxcui);
-
     Optional<Drug> findById(Long id);
 }

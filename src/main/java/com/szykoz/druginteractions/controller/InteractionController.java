@@ -1,10 +1,13 @@
 package com.szykoz.druginteractions.controller;
 
+import com.szykoz.druginteractions.model.Drug;
 import com.szykoz.druginteractions.service.InteractionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/drugs")
@@ -20,21 +23,18 @@ public class InteractionController {
     @GetMapping("")
     ModelAndView getResponse() {
         ModelAndView model = new ModelAndView("index");
-        //System.err.println(interactionService.getAllDrugs());
         model.addObject("drugList", interactionService.getAllDrugs());
         return model;
     }
 
     @GetMapping("/check")
-    ModelAndView getInteractions(@RequestParam(name = "rxcui") Long id) {
+    ModelAndView getInteractions(@RequestParam(name = "rxcui") Long rxcui) {
         ModelAndView model = new ModelAndView("interactions");
-        System.err.println(interactionService.getAllInteractions(id));
-        model.addObject("drug", interactionService.findById(id).get());
-        model.addObject("interactionList", interactionService.getAllInteractions(id));
-
+        Optional<Drug> drugOptional = interactionService.findById(rxcui);
+        if(drugOptional.isPresent()) {
+            model.addObject("drug", drugOptional.get());
+        }
         return model;
 
     }
-
-
 }
