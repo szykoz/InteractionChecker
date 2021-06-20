@@ -26,27 +26,34 @@
                             <a><img src="images/pills.png" alt=""></a>
                         </div>
                         <h4 class="text-center mb-4 text-white">Drugs interaction checker</h4>
-                        <form th:action="@{/drugs/check}" method="get">
+                        <form th:action="@{/drugs/check}" method="get" autocomplete="off">
                             <div class="form-group">
                                 <label class="text-white" for="drug">Select drug name</label>
-                                <select class="form-select default-select d-block w-100" id="drug" name="rxcui">
+                                <select class="form-select default-select d-block w-100" id="drug" name="rxcui"
+                                        required>
                                     <option value="" selected disabled>Please select</option>
-                                    <option th:each="drug : ${drugList}" th:text="${drug.name}" th:value="${drug.rxcui}"></option>
+                                    <option th:each="drug : ${drugList}" th:text="${drug.name}"
+                                            th:value="${drug.rxcui}"></option>
                                 </select>
                             </div>
 
                             <div class="text-center mt-4">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Check</button>
+                                <button class="btn btn-primary btn-lg  mr-4" type="submit"
+                                        onclick="document.getElementById('spinner').style.display='block'">Check
+                                </button>
+                            </div>
+                            <div class="d-flex justify-content-center mt-4">
+                                <div id="spinner" class="spinner-border text-light" style="display: none" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 
 </html>

@@ -18,7 +18,7 @@ public interface DrugRepository extends Neo4jRepository<Drug, Long> {
 
 
     @Override
-    @Query("MATCH (d:Drug)<-[r:INTERACTS]-(e:Drug{rxcui: $rxcui}) return e, collect(r),collect(d)")
+    @Query("MATCH (d:Drug)<-[r:INTERACTS]-(e:Drug) WHERE e.rxcui = $rxcui return e, collect(r),collect(d)")
     Optional<Drug> findById(Long rxcui);
 
 }
